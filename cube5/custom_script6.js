@@ -47,7 +47,7 @@ addMeshC(vts1, index1[2], {meshcolor:0xff0000, scale:sc, flatshade:true});
 addMeshC(vts1, index1[3], {meshcolor:0x44dd00, scale:sc, flatshade:true});
 addMeshC(vts1, index1[4], {meshcolor:0xffff47, scale:sc, flatshade:true});
 
-addTubeC(vts1, edge1, 0.006, {scale:sc, color:0x444444});
+addTubeC(vts1, edge1, 0.006, {scale:sc, color:0xdddddd});
 
 /* 
 【addMeshC】
