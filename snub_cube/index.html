@@ -22,11 +22,11 @@
 
 
     <!--CGを表示するキャンバス（canvasのid名は変更しない）-->
-    <canvas id="3d_graphic_canvas" style="margin-left:8px"></canvas>
+    <canvas id="3d_graphic_canvas" style="margin-left:-8px"></canvas>
 
     <script>
-      document.getElementById('3d_graphic_canvas').width = window.innerWidth;
-      document.getElementById('3d_graphic_canvas').height = window.innerWidth;
+      document.getElementById('3d_graphic_canvas').width = window.innerWidth * 2;
+      document.getElementById('3d_graphic_canvas').height = window.innerWidth * 2;
     </script>
 
     <!--three.jsライブラリ-->
