@@ -1,0 +1,36 @@
+<html lang="ja">
+
+  <head>
+    <title>cube10</title>
+    <meta charset="UTF-8">
+
+  </head>
+
+  <body>
+
+    <!--CGを表示するキャンバス（canvasのid名は変更しない）-->
+    <canvas id="3d_graphic_canvas" width="700" height="500"></canvas>
+
+
+    <select id="mySelect" style="font-size:45px">
+      <option value="../cube5/index.html">5つの立方体</option>
+      <option value="../cube10/index.html">10個の立方体</option>
+      <option value="../tetra5/index.html">5つの正四面体</option>
+    </select>
+
+    <script src="../common_script2.js"></script>
+
+
+    <!--three.jsライブラリ-->
+    <script src="https://unpkg.com/three@0.131.3/build/three.min.js"></script>
+
+
+    <!--メインソース-->
+    <script src="data7.js"></script>
+    <script src="../common_script1.js"></script>  <!--親フォルダにあるファイルの参照には「../」を付ける-->
+    <script src='custom_script7.js'></script>
+
+
+  </body>
+
+</html>
