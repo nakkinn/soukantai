@@ -333,6 +333,7 @@ function addMeshC(vtsa, indexa, optiona){
     mesh1.vtsstring = vtsa;
     mesh1.originalindex = indexa;
     mesh1.originalOption = optiona;
+    mesh1.className = 'meshC';
     
     scene1.add(mesh1);  //シーンにメッシュを追加する
 
@@ -341,8 +342,16 @@ function addMeshC(vtsa, indexa, optiona){
 
 function addTubeC(vtsa, indexa, radius, optiona){
 
+
     const defaultoption = {color:0xffffff, scale:1, rotation:[0,0,0], opacity:1, flatshade:false, wireframe:false, spherecutradius:-1, side:0, radialsegment:8}; //デフォルトのオプション
     optiona = {...defaultoption, ...optiona};   //デフォルトオプションと引数で渡されたオプションのマージ（引数のオプションを優先）
+
+
+    let vts_str = vtsa;
+    vts_str = vts_str.split("[").join("");
+    vts_str = vts_str.split("]").join("");
+    vts_str = vts_str.split(',');
+
 
     let vts1 = eval(vtsa);
     let vts2 = [];
@@ -379,7 +388,17 @@ function addTubeC(vtsa, indexa, radius, optiona){
         y2 = vts2[i][vts2[i].length-1][1];
         z2 = vts2[i][vts2[i].length-1][2];
 
-        let geometry2 = new THREE.SphereGeometry(radius);
+        let vtsstring_tmp = "[";
+        for(let j=0; j<indexa[i].length; j++){
+            vtsstring_tmp += "[" + vts_str[indexa[i][j]*3] + "," + vts_str[indexa[i][j]*3+1] + "," + vts_str[indexa[i][j]*3+2] + "],";
+        }
+        vtsstring_tmp = vtsstring_tmp.slice(0,-1) + "]";
+        mesh1.vtsstring = vtsstring_tmp;
+        mesh1.radius = radius;
+        mesh1.originalOption = optiona;
+        mesh1.className = "tubeC";
+
+        let geometry2 = new THREE.SphereGeometry(radius, 16, 16);
         for(let j=0; j<geometry2.attributes.position.array.length; j++){
             if(j%3==0)  geometry2.attributes.position.array[j] += x1;
             if(j%3==1)  geometry2.attributes.position.array[j] += y1;
@@ -388,8 +407,11 @@ function addTubeC(vtsa, indexa, radius, optiona){
         let mesh2 = new THREE.Mesh(geometry2, material1);
         mesh2.scale.set(optiona.scale, optiona.scale, optiona.scale);   //スケールの設定
         mesh2.rotation.set(optiona.rotation[0], optiona.rotation[1], optiona.rotation[2]);  //姿勢の設定
+        mesh2.className = 'ballC';
+        mesh2.center_pos = [x1, y1, z1];
+        mesh2.vtsstring = "[" + vts_str[indexa[i][0]*3] + "," + vts_str[indexa[i][0]*3+1] + "," + vts_str[indexa[i][0]*3+2] +  "]";
 
-        let geometry3 = new THREE.SphereGeometry(radius);
+        let geometry3 = new THREE.SphereGeometry(radius, 16, 16);
         for(let j=0; j<geometry3.attributes.position.array.length; j++){
             if(j%3==0)  geometry3.attributes.position.array[j] += x2;
             if(j%3==1)  geometry3.attributes.position.array[j] += y2;
@@ -398,13 +420,15 @@ function addTubeC(vtsa, indexa, radius, optiona){
         let mesh3 = new THREE.Mesh(geometry3, material1);
         mesh3.scale.set(optiona.scale, optiona.scale, optiona.scale);   //スケールの設定
         mesh3.rotation.set(optiona.rotation[0], optiona.rotation[1], optiona.rotation[2]);  //姿勢の設定
+        mesh3.className = 'ballC';
+        mesh3.center_pos = [x2, y2, z2];
+        mesh3.vtsstring = "[" + vts_str[indexa[i][indexa[i].length-1]*3] + "," + vts_str[indexa[i][indexa[i].length-1]*3+1] + "," + vts_str[indexa[i][indexa[i].length-1]*3+2] +  "]";
 
         scene1.add( mesh1 );
         scene1.add( mesh2 );
         scene1.add( mesh3 );
     }
 
-    console.log(vts2);
 
 }
 
@@ -413,7 +437,7 @@ function addTubeC(vtsa, indexa, radius, optiona){
 function updateObjectC(){
     scene1.traverse((object)=>{
 
-        if(object.isMesh){
+        if(object.className == 'meshC'){
 
             //ジオメトリの更新
             if(getvalueC(object.originalOption.spherecutradius)!=-1 && object.originOption.spherecutradius!=undefined){   //球面カットを行う場合
@@ -435,6 +459,35 @@ function updateObjectC(){
             object.geometry.computeVertexNormals(); //頂点の法線ベクトルの更新
 
         }
+
+        if(object.className == 'ballC'){
+            let tmp = eval(object.vtsstring);
+            let x1 = tmp[0];
+            let y1 = tmp[1];
+            let z1 = tmp[2];
+
+            for(let i=0; i<object.geometry.attributes.position.array.length; i++){
+                if(i%3==0)  object.geometry.attributes.position.array[i] += -object.center_pos[0] + x1;
+                if(i%3==1)  object.geometry.attributes.position.array[i] += -object.center_pos[1] + y1;
+                if(i%3==2)  object.geometry.attributes.position.array[i] += -object.center_pos[2] + z1;
+            }
+
+            object.center_pos = [x1, y1, z1];
+
+            object.geometry.getAttribute('position').needsUpdate = true;
+            object.geometry.computeVertexNormals(); //頂点の法線ベクトルの更新
+        }
+
+
+        if(object.className == "tubeC"){
+            let plist = eval(object.vtsstring);
+            let vts = makeTubeC(plist, object.radius, object.originalOption.radialsegment, true);
+            object.geometry.attributes.position.array = new Float32Array(vts);
+            object.geometry.getAttribute('position').needsUpdate = true;
+            object.geometry.computeVertexNormals(); //頂点の法線ベクトルの更新
+        }
+
+
     });
 }
 
@@ -610,7 +663,7 @@ function tripolyC(list){
 
 
 //ポイントリストからチューブのジオメトリを生成
-function makeTubeC(plist, radius, n){
+function makeTubeC(plist, radius, n, option=false){
 
     let vts = [];
     let index = [];
@@ -669,6 +722,8 @@ function makeTubeC(plist, radius, n){
     for(let i=0; i<ring.length; i++){
         vts.push(ring[i].x+plist[plist.length-1][0], ring[i].y+plist[plist.length-1][1], ring[i].z+plist[plist.length-1][2]);
     }
+
+    if(option)  return vts;
 
 
     for(let i=0; i<plist.length-1; i++) for(let j=0; j<n; j++){

@@ -22,8 +22,12 @@
 
 
     <!--CGを表示するキャンバス（canvasのid名は変更しない）-->
-    <canvas id="3d_graphic_canvas" width="700" height="500"></canvas>
+    <canvas id="3d_graphic_canvas" style="margin-left:8px"></canvas>
 
+    <script>
+      document.getElementById('3d_graphic_canvas').width = window.innerWidth;
+      document.getElementById('3d_graphic_canvas').height = window.innerWidth;
+    </script>
 
     <!--three.jsライブラリ-->
     <script src="https://unpkg.com/three@0.131.3/build/three.min.js"></script>
