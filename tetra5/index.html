@@ -15,7 +15,12 @@
       <option value="../snub_cube/index.html">変形多面体</option>
     </select>
 
-    <script src="../common_script2.js"></script>
+    <!--セレクトボックスを操作したら別ページに移動する処理-->
+    <script>
+      document.getElementById("mySelect").addEventListener('change',()=>{
+        window.location.href = document.getElementById("mySelect").value;  //mySelectが操作されたとき、ページ移動
+      });
+    </script> 
 
     <div style="height:30px"></div>
 
@@ -38,7 +43,7 @@
 
     <!--メインソース-->
     <script src="data5.js"></script>
-    <script src="../common_script1.js"></script>  <!--親フォルダにあるファイルの参照には「../」を付ける-->
+    <script src="../common_cgweb1.js"></script>  <!--親フォルダにあるファイルの参照には「../」を付ける-->
     <script src='custom_script5.js'></script>
 
 

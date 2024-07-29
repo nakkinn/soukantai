@@ -15,12 +15,16 @@
       <option value="../snub_cube/index.html">変形多面体</option>
     </select>
 
-    <script src="../common_script2.js"></script>
+    <!--セレクトボックスを操作したら別ページに移動する処理-->
+    <script>
+      document.getElementById("mySelect").addEventListener('change',()=>{
+        window.location.href = document.getElementById("mySelect").value;  //mySelectが操作されたとき、ページ移動
+      });
+    </script> 
 
     <div style="height:30px"></div>
 
-    <!--CGを表示するキャンバス（canvasのid名は変更しない）-->
-    <canvas id="3d_graphic_canvas"></canvas>
+    <canvas id="3d_graphic_canvas" style="margin-left:-8px"></canvas>
 
     <script>
       let canvas1 = document.getElementById('3d_graphic_canvas');
@@ -37,7 +41,7 @@
 
     <!--メインソース-->
     <script src="data7.js"></script>
-    <script src="../common_script1.js"></script>  <!--親フォルダにあるファイルの参照には「../」を付ける-->
+    <script src="../common_cgweb1.js"></script>  <!--ver3以降が使用可能-->
     <script src='custom_script7.js'></script>
 
 

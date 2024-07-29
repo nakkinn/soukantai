@@ -15,11 +15,16 @@
       <option value="../snub_cube/index.html" selected>変形多面体</option>
     </select>
 
-    <script src="../common_script2.js"></script>
+    <!--セレクトボックスを操作したら別ページに移動する処理-->
+    <script>
+      document.getElementById("mySelect").addEventListener('change',()=>{
+        window.location.href = document.getElementById("mySelect").value;  //mySelectが操作されたとき、ページ移動
+      });
+    </script> 
 
     <div style="height:30px"></div>
 
-
+    <!--スライダーの生成 id名を付け、custom.jsファイルでそのidを参照する-->
     <p style="margin-left:30px">ラベル1</p>
     <input type="range" id="slider1" min='0' max='1' step='0.01' style="width:min(90%,400px); margin-left:min(5%,30px); margin-right:30px">
 
@@ -42,13 +47,14 @@
       canvas1.style.height = size;
     </script>
 
+
     <!--three.jsライブラリ-->
     <script src="https://unpkg.com/three@0.131.3/build/three.min.js"></script>
 
 
     <!--メインソース-->
     <script src="data8.js"></script>
-    <script src="../common_script1.js"></script>  <!--親フォルダにあるファイルの参照には「../」を付ける-->
+    <script src="../common_cgweb1.js"></script>  <!--親フォルダにあるファイルの参照には「../」を付ける-->
     <script src='custom_script8.js'></script>
 
 

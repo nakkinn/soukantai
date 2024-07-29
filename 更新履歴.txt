@@ -1,0 +1,47 @@
+バージョンは、フォルダ名、一番上の階層のindex.htmlファイルの先頭に記述しています
+
+フォルダ「cube5」内のスクリプトに詳細なコメントを記述しています
+
+
+
+
+【更新履歴】
+
+ver 2　（2024/7/29/18:00）
+
+色が暗くなりすぎないようにライトの強さを調整した
+common_script1.js のファイル名を common_cgweb1.js に変更した
+addMeshC関数のオプション meshcolor の名称を color に変更した
+
+
+（コメント）
+
+〇使用ライブラリ Three.js について
+
+Three.jsは広く使用されている3DCGを表示するためのライブラリです。
+
+名古屋工業大学の図書館には次のThree.jsについての書籍が所蔵されています。
+『初めてのThree.js:WebGLのためのJava Script 3Dライブラリ』 Jos Drksen著, あんどうやすし訳, オライリー・ジャパン出版
+
+国土交通省のデジタル・トランスフォーメーションを進めるためのプロジェクト「PLATEAU」の一貫として、3D都市モデルの提供がされており、
+そのデータの活用法の1つとして、PLATEAU公式ページでthree.jsが紹介されています。
+https://www.mlit.go.jp/toshi/daisei/plateau_hojo.html
+https://www.mlit.go.jp/plateau/learning/tpc12-1/
+
+
+
+〇graphic complexについて
+
+mathematicaを使ってgraphic complexを生成する場合、
+//InputFormを使って乗算記号 * が付いた形式で出力してください。
+三角関数 Sin[ ], Cos[], Tan[ ]　は sin( ), cos( ), tan( ) に変換してください。
+配列の { } は [ ] に変換してください。
+
+
+
+〇新規作成について
+
+現在（ver2）では4つのフォルダがあり、共通ファイル common_cgweb1 はそれらのフォルダと同じ階層に置かれています。
+共通ファイルをカスタムファイル（custom_script〇.jsやdata〇.js等）と同じ階層に置く場合は、htmlファイルにおいて、
+<script src="../common_cgweb1.js"></script>　ではなく
+<script src="common_cgweb1.js"></script>　と記述してください。
