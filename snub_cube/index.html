@@ -7,31 +7,23 @@
   </head>
 
   <body>
+    
+    <a href="../index.html" style="font-size:20px;margin-left:10px;">ホーム</a>
 
-    <select id="mySelect" style="font-size:20px">
-      <option value="../cube5/index.html">5つの立方体</option>
-      <option value="../cube10/index.html">10個の立方体</option>
-      <option value="../tetra5/index.html">5つの正四面体</option>
-      <option value="../snub_cube/index.html" selected>変形多面体</option>
-    </select>
+    <div style="height:30px"></div>
 
-    <!--セレクトボックスを操作したら別ページに移動する処理-->
-    <script>
-      document.getElementById("mySelect").addEventListener('change',()=>{
-        window.location.href = document.getElementById("mySelect").value;  //mySelectが操作されたとき、ページ移動
-      });
-    </script> 
+    <script src="../common_pagejump1.js"></script>
 
     <div style="height:30px"></div>
 
     <!--スライダーの生成 id名を付け、custom.jsファイルでそのidを参照する-->
-    <p style="margin-left:30px">ラベル1</p>
-    <input type="range" id="slider1" min='0' max='1' step='0.01' style="width:min(90%,400px); margin-left:min(5%,30px); margin-right:30px">
+    <p style="margin-left:30px">正方形のサイズ</p>
+    <input type="range" id="slider1" min='0' max='1' step='0.01' value='0.5' style="width:min(90%,400px); margin-left:min(5%,30px); margin-right:30px">
 
     <div style="height:20px"></div>
 
-    <p style="margin-left:30px">ラベル2</p>
-    <input type="range" id="slider2" min='0' max='1' step='0.01' style="width:min(90%,400px); margin-left:min(5%,30px); margin-right:30px">
+    <p style="margin-left:30px">回転</p>
+    <input type="range" id="slider2" min='0' max='1' step='0.01' value='0' style="width:min(90%,400px); margin-left:min(5%,30px); margin-right:30px">
 
     <div style="height:50px"></div>
 
@@ -53,8 +45,8 @@
 
 
     <!--メインソース-->
+    <script src="../common_cgweb1.js"></script>  <!--ver5対応-->
     <script src="data8.js"></script>
-    <script src="../common_cgweb1.js"></script>  <!--親フォルダにあるファイルの参照には「../」を付ける-->
     <script src='custom_script8.js'></script>
 
 

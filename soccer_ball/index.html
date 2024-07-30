@@ -1,0 +1,48 @@
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+
+    <a href="../index.html" style="font-size:20px;margin-left:10px;">ホーム</a>
+
+    <div style="height:30px"></div>
+
+    <script src="../common_pagejump1.js"></script>
+
+    <div style="height:30px"></div>
+
+    <!--スライダーの生成 id名を付け、custom.jsファイルでそのidを参照する-->
+    <input type="range" id="slider1" min='0' max='1' step='0.01' value='1' style="width:min(90%,400px); margin-left:min(5%,30px); margin-right:30px">
+
+    <div style="height:50px"></div>
+
+    <!--CGを表示するキャンバス（canvasのid名は変更しない）-->
+    <canvas id="3d_graphic_canvas" style="margin-left:-8px"></canvas>
+
+    <script>
+      let canvas1 = document.getElementById('3d_graphic_canvas');
+      let size = Math.min(600, window.innerWidth);
+      canvas1.width = size * window.devicePixelRatio;
+      canvas1.height = size * window.devicePixelRatio;
+      canvas1.style.width = size;
+      canvas1.style.height = size;
+    </script>
+
+
+    <!--three.jsライブラリ-->
+    <script src="https://unpkg.com/three@0.131.3/build/three.min.js"></script>
+
+
+    <!--メインソース-->
+    <script src="../common_cgweb1.js"></script>  <!--ver5対応-->
+    <script src="data1.js"></script>
+    <script src='custom_script1.js'></script>
+
+
+  </body>
+
+</html>

@@ -1,4 +1,4 @@
-//ver3
+//ver5
 
 //このjsファイルは基本的に編集しない
 
@@ -371,7 +371,7 @@ function addTubeC(vtsa, indexa, radius, optiona){
         color: getvalueC(optiona.color),    //色
         side:THREE.DoubleSide,
         wireframe:optiona.wireframe,    //ワイヤーフレーム
-        transparent:true,   //透過モード
+        transparent:false,   //透過モード
         opacity:getvalueC(optiona.opacity),  //透明度
     });
 
@@ -433,6 +433,50 @@ function addTubeC(vtsa, indexa, radius, optiona){
 
 
 }
+
+
+//graphic complexからオブジェクト生成　
+function addObjectFromGC1C(gc, polygon_color_set, edge_color, scale, tuberadius){
+
+    /*
+    gcの構造
+
+    [
+        '[[x1,y1,z1],[x2,y2,z2],...]',  頂点リスト
+
+        [   ポリゴンインデックスリスト　
+            [[p111,p112,p113],[p121,p122,p123],...],
+            [[p211,p212,p213],[p221,p222,p223],...],
+            [[p311,p312,p313,p314],[p321,p322,p323,p324],...],...
+        ],
+
+        [[e11,e12], [e21,e22], [e31,e32], ...]  辺のインデックスリスト
+    ]
+
+    polygon_color_setはポリゴンインデックスリストのグループ数と同じ長さの配列にする
+    */
+
+
+    let vts = gc[0];
+    let pindex = gc[1];
+    let eindex = gc[2];
+
+    if(scale=='auto'){
+        let vts1 = eval(vts).flat();
+        vts1 = vts1.map(value=>Math.abs(value));
+        let maxd = Math.max(...vts1);
+        scale = 2.8 / maxd;
+    }
+
+    for(let i=0; i<pindex.length; i++){
+        addMeshC(vts, pindex[i], {color:polygon_color_set[Math.min(i,polygon_color_set.length-1)], scale:scale, flatshade:true});
+    }
+
+    if(tuberadius>0){
+        addTubeC(vts, eindex, tuberadius, {color:edge_color, scale:scale});
+    }
+}
+
 
 
 //scene1に含まれるオブジェクトの形状を更新する
@@ -744,4 +788,14 @@ function makeTubeC(plist, radius, n, option=false){
 
     return geometry1;
 
+}
+
+
+
+//頂点リストを入力すると適切なスケールを返す
+function adjustScaleC(arg){
+    let vts1 = eval(arg).flat();
+    vts1 = vts1.map(value=>Math.abs(value));
+    let maxd = Math.max(...vts1);
+    return 2.8 / maxd;
 }

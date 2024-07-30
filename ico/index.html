@@ -1,0 +1,51 @@
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">  <!--文字コード指定　文字化け防止-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">  <!--スマホで閲覧時コンテンツが小さくなるのを防ぐ-->
+  </head>
+
+
+  <body>
+
+    <a href="../index.html" style="font-size:20px;margin-left:10px;">ホーム</a>
+
+    <div style="height:30px"></div>
+
+    <script src="../common_pagejump1.js"></script>
+
+    <div style="height:30px"></div>
+
+    <script src="../common_pagejump1.js"></script>
+
+    <div style="height:30px"></div>
+
+    <!--CGを表示するキャンバス（canvasのid名は変更しない）-->
+    <canvas id="3d_graphic_canvas" style="margin-left:-8px"></canvas> <!--デフォルトで8ピクセルの余白があるので左に8pxずらす-->
+
+    <!--キャンバスのサイズ・画質の設定処理　正方形キャンバスにしている-->
+    <script>  
+      let canvas1 = document.getElementById('3d_graphic_canvas'); //キャンバス要素をidから取得
+      let size = Math.min(600, window.innerWidth);  //キャンバスの1辺の長さを「600px」と「ブラウザのウィンドウの横幅」のうち小さい方とする
+      canvas1.width = size * window.devicePixelRatio; //キャンバスの画質（横方向）の設定
+      canvas1.height = size * window.devicePixelRatio;  //キャンバスの画質（縦方向）の設定
+      canvas1.style.width = size; //キャンバスの幅設定
+      canvas1.style.height = size;  //キャンバスの高さ設定
+    </script>
+
+
+
+    <!--外部ライブラリ-->
+    <script src="https://unpkg.com/three@0.131.3/build/three.min.js"></script>  <!--three.jsライブラリ-->
+
+    <!--自前のスクリプト-->
+    <!--これらのスクリプトはbodyタグ内の最後に配置する-->
+    <!--common_cgweb1.js及びdata.jsはcustom_script.jsの前に配置する-->
+    
+    <script src="../common_cgweb1.js"></script>  <!--自作関数を記述したファイル。ver5対応（参照ファイルの最初にバージョンを記している）。親フォルダにあるファイルの参照には「../」を付ける-->
+    
+    <script src='custom_script1.js'></script> <!--オブジェクトの追加やライト等の環境設定を行うファイル-->
+
+  </body>
+
+</html>

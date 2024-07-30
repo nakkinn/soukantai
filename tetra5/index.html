@@ -8,22 +8,14 @@
 
   <body>
 
-    <select id="mySelect" style="font-size:20px">
-      <option value="../cube5/index.html">5つの立方体</option>
-      <option value="../cube10/index.html">10個の立方体</option>
-      <option value="../tetra5/index.html" selected>5つの正四面体</option>
-      <option value="../snub_cube/index.html">変形多面体</option>
-    </select>
-
-    <!--セレクトボックスを操作したら別ページに移動する処理-->
-    <script>
-      document.getElementById("mySelect").addEventListener('change',()=>{
-        window.location.href = document.getElementById("mySelect").value;  //mySelectが操作されたとき、ページ移動
-      });
-    </script> 
+    <a href="../index.html" style="font-size:20px;margin-left:10px;">ホーム</a>
 
     <div style="height:30px"></div>
 
+    <script src="../common_pagejump2.js"></script>
+
+    <div style="height:30px"></div>
+    
     <!--CGを表示するキャンバス（canvasのid名は変更しない）-->
     <canvas id="3d_graphic_canvas" style="margin-left:-8px"></canvas>
 
@@ -42,8 +34,8 @@
 
 
     <!--メインソース-->
+    <script src="../common_cgweb1.js"></script>  <!--ver5対応-->
     <script src="data5.js"></script>
-    <script src="../common_cgweb1.js"></script>  <!--親フォルダにあるファイルの参照には「../」を付ける-->
     <script src='custom_script5.js'></script>
 
 

@@ -7,7 +7,7 @@ setBackgroundColorC(0xeeeeee);
 
 
 // カメラ（必須）
-addPerspectiveCameraC();
+addPerspectiveCameraC({fov:40});
 //addOrthographicCameraC();
 
 
@@ -20,15 +20,20 @@ addDirectionalLightC(0xffffff, 0.6, 1, 1, 1);   //第1引数：光の色, 第2�
 addDirectionalLightC(0xffffff, 0.3, -1, -1, 1);
 
 
+let sc = 0.8;
+
 //オブジェクトの追加
-addMeshC(vts1, index1, {color:0xff6600, flatshade:true});   //橙
-addMeshC(vts2, index1, {color:0x0044ff, flatshade:true});   //青
-addMeshC(vts3, index1, {color:0xff2200, flatshade:true});   //赤
-addMeshC(vts4, index1, {color:0x44dd00, flatshade:true});   //黄緑
-addMeshC(vts5, index1, {color:0xffff00, flatshade:true});   //黄
+addMeshC(vts1, index1, {scale:sc, color:0xff7700, flatshade:true});  
+addMeshC(vts2, index1, {scale:sc, color:0x0077ff, flatshade:true});   
+addMeshC(vts3, index1, {scale:sc, color:0x77ff00, flatshade:true});   
+addMeshC(vts4, index1, {scale:sc, color:0xff40cc, flatshade:true});
+addMeshC(vts5, index1, {scale:sc, color:0xf4ff1f, flatshade:true});
 
-addTubeC(vtsall, edge1, 0.1, {color:0x7ad3ff}); //辺チューブ
-
+addTubeC(vts1, edge2, 0.03, {scale:sc, color:0xdddddd});
+addTubeC(vts2, edge2, 0.03, {scale:sc, color:0xdddddd});
+addTubeC(vts3, edge2, 0.03, {scale:sc, color:0xdddddd});
+addTubeC(vts4, edge2, 0.03, {scale:sc, color:0xdddddd});
+addTubeC(vts5, edge2, 0.03, {scale:sc, color:0xdddddd});
 
 
 //レンダリング（必須）
