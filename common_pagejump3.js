@@ -1,9 +1,10 @@
 //ページ数が増えた場合、optionsの要素を追加する
 const options = [
-    {url:"../dod/index.html", title:"正十二面体"},
-    {url:"../ico/index.html", title:"正二十面体"},
-    {url:"../soccer_ball/index.html", title:"切頂二十面体"},
-    {url:"../snub_cube/index.html", title:"正八面体ひねり"},
+    {url:"../cylinder2/index.html", title:"2本円柱交差"},
+    {url:"../cylinder3/index.html", title:"3本円柱交差"},
+    {url:"../cylinder4/index.html", title:"4本円柱交差"},
+    {url:"../cylinder6/index.html", title:"6本円柱交差"},
+
 ];
 
 

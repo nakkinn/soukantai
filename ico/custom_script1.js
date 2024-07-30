@@ -30,7 +30,7 @@ addDirectionalLightC(0xffffff, 0.3, -1, -1, 1);
 
 
 //チューブの追加
-addMeshC(vts1, index1, {scale:0.7, color:0xff7700, flatshade:true});
+addMeshC(vts1, index1, {scale:0.7, color:0xff7700, flatshade:true, opacity:0.8});
 addTubeC(vts1, edge1, 0.06, {scale:0.7, color:0xdddddd});    //第1引数：頂点リスト変数名, 第2引数：ポリゴンインデックスリスト変数名, 第3引数：チューブ半径, 第4引数：オプション（省略化）
 
 

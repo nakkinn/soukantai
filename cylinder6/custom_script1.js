@@ -23,7 +23,7 @@ addDirectionalLightC(0xffffff, 0.3, -1, -2, 1);
 
 
 //オブジェクトの追加
-let sc1 = 3;
+let sc1 = 2;
 let rt1 = [0.7, 0.2, 0]
 
 

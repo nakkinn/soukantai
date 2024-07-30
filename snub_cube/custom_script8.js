@@ -45,9 +45,9 @@ addDirectionalLightC(0xffffff, 0.3, -1, -1, 1);
 let sc1 = 1;
 let rot = [-1,0,-1];
 
-addMeshC(vts1, index_red, {color:0xff7700, flatshade:true, scale:sc1, rotation:rot}); //赤い面
-addMeshC(vts1, index_blue, {color:0x0077ff, flatshade:true, scale:sc1, rotation:rot});    //青の面
-addMeshC(vts1, index_green, {color:0x77ff00, flatshade:true, scale:sc1, rotation:rot});   //緑の面
+addMeshC(vts1, index_red, {color:0xff7700, flatshade:true, scale:sc1, rotation:rot, opacity:0.7}); //赤い面
+addMeshC(vts1, index_blue, {color:0x0077ff, flatshade:true, scale:sc1, rotation:rot, opacity:0.7});    //青の面
+addMeshC(vts1, index_green, {color:0x77ff00, flatshade:true, scale:sc1, rotation:rot, opacity:0.7});   //緑の面
 
 addTubeC(vts1, edge1, 0.03, {scale:sc1, rotation:rot});   //辺チューブ
 

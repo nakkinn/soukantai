@@ -38,8 +38,8 @@ addDirectionalLightC(0xffffff, 0.3, -1, -1, 1);
 let sc1 = 0.7;
 let rot = [-1,0,-1];
 
-addMeshC(vts1, index1, {color:0x77ff00, flatshade:true, scale:sc1, rotation:rot}); 
-addMeshC(vts1, index2, {color:0x0077ff, flatshade:true, scale:sc1, rotation:rot} )
+addMeshC(vts1, index1, {color:0x77ff00, flatshade:true, scale:sc1, rotation:rot, opacity:0.7}); 
+addMeshC(vts1, index2, {color:0x0077ff, flatshade:true, scale:sc1, rotation:rot, opacity:0.7} )
 
 addTubeC(vts1, edge1, 0.04, {scale:sc1, rotation:rot, color:0xffffff});   //辺チューブ
 

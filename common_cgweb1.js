@@ -1,4 +1,4 @@
-//ver5
+//ver6
 
 //このjsファイルは基本的に編集しない
 
@@ -436,7 +436,7 @@ function addTubeC(vtsa, indexa, radius, optiona){
 
 
 //graphic complexからオブジェクト生成　
-function addObjectFromGC1C(gc, polygon_color_set, edge_color, scale, tuberadius){
+function addObjectFromGC1C(gc, polygon_color_set, edge_color, scale, tuberadius, rot=[0,0,0]){
 
     /*
     gcの構造
@@ -469,11 +469,11 @@ function addObjectFromGC1C(gc, polygon_color_set, edge_color, scale, tuberadius)
     }
 
     for(let i=0; i<pindex.length; i++){
-        addMeshC(vts, pindex[i], {color:polygon_color_set[Math.min(i,polygon_color_set.length-1)], scale:scale, flatshade:true});
+        addMeshC(vts, pindex[i], {color:polygon_color_set[Math.min(i,polygon_color_set.length-1)], scale:scale, flatshade:true, rotation:rot});
     }
 
     if(tuberadius>0){
-        addTubeC(vts, eindex, tuberadius, {color:edge_color, scale:scale});
+        addTubeC(vts, eindex, tuberadius, {color:edge_color, scale:scale, rotation:rot});
     }
 }
 
