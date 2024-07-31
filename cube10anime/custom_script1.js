@@ -30,7 +30,7 @@ addPerspectiveCameraC({fov:40});
 
 
 //環境光ライト
-addAmbientLightC(0xffffff, 0.4);   //第1引数：光の色, 第2引数：光の強さ
+addAmbientLightC(0xffffff, 0.5);   //第1引数：光の色, 第2引数：光の強さ
 
 
 //指向性ライト
