@@ -40,7 +40,7 @@ const geometry1 = new THREE.CylinderGeometry(0, 1.5, 4, 48);
 const geometry2 = new THREE.CylinderGeometry(0.5, 0.5, 5, 48);
 
 
-const material1 = new THREE.MeshStandardMaterial({color:0x00ff77});
+const material1 = new THREE.MeshStandardMaterial({color:0x00ff77, transparent:true, opacity:0.7});
 const material2 = new THREE.MeshStandardMaterial({color:0x0077ff});
 
 const mesh1 = new THREE.Mesh(geometry1, material1);
@@ -50,8 +50,9 @@ mesh2.rotation.set(0, 0, Math.PI / 2 * Number(slider1.value));
 mesh2.scale.x = 1.2 *  Number(slider2.value);
 mesh2.scale.z = 1.2 *  Number(slider2.value);
 
-scene1.add(mesh1);
 scene1.add(mesh2);
+scene1.add(mesh1);
+
 
 //レンダリング（必須）
 animateC();

@@ -11,9 +11,24 @@
 
     <div style="height:30px"></div>
 
-    <script src="../common_pagejump2.js"></script>
+    <select style="font-size:20px" id="select1">
+      <option value="../tetra5/index.html">5つの正四面体</option>
+      <option value="../cube3/index.html">3つの立方体</option>
+      <option value="../cube5/index.html">5つの立方体</option>
+      <option value="../cube10a/index.html" selected>10個の立方体A</option>
+      <option value="../cube10b/index.html">10個の立方体B</option>
+      <option value="../cube10anime/index.html">10個の立方体C</option>
+      <option value="../oct4/index.html">4つの正八面体</option>
+      <option value="../dod5/index.html">5つの正十二面体</option>
+    </select>
 
-    <div style="height:30px"></div>
+    <script>
+      document.getElementById("select1").addEventListener('change',()=>{
+        window.location.href = document.getElementById("select1").value;
+      });
+    </script>
+
+    <div style="height:20px"></div>
 
     <canvas id="3d_graphic_canvas" style="margin-left:-8px"></canvas>
 

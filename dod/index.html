@@ -12,9 +12,20 @@
 
     <div style="height:30px"></div>
 
-    <script src="../common_pagejump1.js"></script>
+    <select style="font-size:20px" id="select1">
+      <option value="../dod/index.html" selected>正十二面体</option>
+      <option value="../ico/index.html">正二十面体</option>
+      <option value="../soccer_ball/index.html">切頂二十面体</option>
+      <option value="../snub_cube/index.html">正八面体ひねり</option>
+    </select>
 
-    <div style="height:30px"></div>
+    <script>
+      document.getElementById("select1").addEventListener('change',()=>{
+        window.location.href = document.getElementById("select1").value;
+      });
+    </script>
+
+    <div style="height:20px"></div>
 
 
     <!--CGを表示するキャンバス（canvasのid名は変更しない）-->

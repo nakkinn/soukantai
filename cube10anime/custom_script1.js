@@ -5,9 +5,12 @@ const slider1 = document.getElementById('slider1');
 //スライダーの初期値を代入
 let r = Number(slider1.value);
 
+let opa = 1;
 
 slider1.addEventListener('input',()=>{
     r = Number(slider1.value);
+    if(0.6<=r && r<=0.65)   opa = 0;
+    else    opa = 1;
     updateObjectC();
 });
 
@@ -44,11 +47,11 @@ addMeshC(vts2, index1, {color:0x0077ff, flatshade:true, scale:sc1, rotation:rot}
 addMeshC(vts3, index1, {color:0x77ff00, flatshade:true, scale:sc1, rotation:rot}); 
 addMeshC(vts4, index1, {color:0xff40cc, flatshade:true, scale:sc1, rotation:rot});
 addMeshC(vts5, index1, {color:0xf4ff1f, flatshade:true, scale:sc1, rotation:rot}); 
-addMeshC(vts6, index1, {color:0xff2200, flatshade:true, scale:sc1, rotation:rot});
-addMeshC(vts7, index1, {color:0x2200cc, flatshade:true, scale:sc1, rotation:rot}); 
-addMeshC(vts8, index1, {color:0x00aa22, flatshade:true, scale:sc1, rotation:rot});
-addMeshC(vts9, index1, {color:0x7700ff, flatshade:true, scale:sc1, rotation:rot}); 
-addMeshC(vts10, index1, {color:0xaaaaaa, flatshade:true, scale:sc1, rotation:rot});
+addMeshC(vts6, index1, {color:0xff2200, flatshade:true, scale:sc1, rotation:rot, opacity:'opa'});
+addMeshC(vts7, index1, {color:0x2200cc, flatshade:true, scale:sc1, rotation:rot, opacity:'opa'}); 
+addMeshC(vts8, index1, {color:0x00aa22, flatshade:true, scale:sc1, rotation:rot, opacity:'opa'});
+addMeshC(vts9, index1, {color:0x7700ff, flatshade:true, scale:sc1, rotation:rot, opacity:'opa'}); 
+addMeshC(vts10, index1, {color:0xaaaaaa, flatshade:true, scale:sc1, rotation:rot, opacity:'opa'});
 
 
 

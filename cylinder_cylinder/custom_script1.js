@@ -40,7 +40,7 @@ const geometry1 = new THREE.CylinderGeometry(0.5, 0.5, 4, 48);
 const geometry2 = new THREE.CylinderGeometry(0.5, 0.5, 3.8, 48);
 
 
-const material1 = new THREE.MeshStandardMaterial({color:0xff7700});
+const material1 = new THREE.MeshStandardMaterial({color:0xff7700, transparent:true, opacity:0.7});
 const material2 = new THREE.MeshStandardMaterial({color:0x0077ff});
 
 const mesh1 = new THREE.Mesh(geometry1, material1);
